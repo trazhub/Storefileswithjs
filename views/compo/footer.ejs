@@ -1,0 +1,21 @@
+<!-- partial -->
+<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js'></script><script  src="./script.js"></script>
+<script>
+async function UploadFiles() {
+    let node = document.createElement('input');
+    node.type = 'file';
+    node.id = "demoFile";
+    node.name = "sampleFile";
+	document.getElementById("uploadForm").appendChild(node);
+    document.getElementById("demoFile").onchange = function() {
+        document.getElementById("uploadForm").submit();
+    };
+
+    node.click();
+    
+
+}
+</script>
+</body>
+</html>

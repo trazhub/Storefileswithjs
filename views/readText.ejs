@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Ghost text editor</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="cont">
+	<div id="editor" contenteditable="false">
+		<section id="toolbar">
+			<div id="bold" class="icon fa fa-bold"></div>
+			<div id="italic" class="icon fa fa-italic"></div>
+			<div id="createLink" class="icon fa fa-link"></div>
+			<div id="insertUnorderedList" class="icon fa fa-list"></div>
+			<div id="insertOrderedList" class="icon fa fa-list-ol"></div>
+			<div id="justifyLeft" class="icon fa fa-align-left"></div>
+			<div id="justifyRight" class="icon fa fa-align-right"></div>
+			<div id="justifyCenter" class="icon fa fa-align-center"></div>
+			<div id="justifyFull" class="icon fa fa-align-justify"></div>
+		</section>
+
+		<div id="page" contenteditable="true">
+			<p id="page-content" style="overflow-y: scroll; height:320px;"></p>
+		</div>
+	</div>
+	<button class="log-out-client" onclick="getContent();">
+		<i class="fa fa-save"></i>
+		<span>Save content</span>
+	</button>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="/scripts.js"></script>
+<script>
+	let s = "<%=data%>"
+	let a = s.split("&lt;br /&gt;")
+	console.log(a.length)
+	for(var i=0;i<a.length;i++){
+		const node = document.createElement("p")
+		textnode = document.createTextNode(a[i]);
+		node.appendChild(textnode);
+		document.getElementById("page-content").appendChild(node);
+	}
+	
+</script>
+</body>
+</html>
